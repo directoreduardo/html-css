@@ -11,24 +11,39 @@
         }
         table{
             width: 500px;
+            border-collapse: collapse;
         }
         caption{
             font-size: 1.3em;
             font-weight: bold;
             padding: 5px;
-
+            background-color: rgba(156, 156, 156, 0.302);
         }
         td, th{
             border: 1px solid black;
             padding: 10px;
         }
         thead{
-            background-color: rgba(165, 162, 162, 0.946);
+            background-color: rgba(65, 64, 64, 0.845);
+            color: white;
+        }
+        tbody>tr:nth-child(2n){ /* 2n ou even = par, odd ou 2n-1 = impar*/
+            background-color: rgba(156, 156, 156, 0.536);
         }
         td.num{
             text-align: right;
         }
     </style>
+    <!--PARA FIXAR O CABEÇALHO QUANDO A TABELA É MUITO GRANDE:
+    table{
+        position: relative;
+    }
+    thead>tr>th{
+        position: sticky;
+        top: 0;  #ou -1, caso falte um pixel 
+        background-color: rgba(65, 64, 64, 0.845);  #a cor deve ser a mesma do cabeçalho
+    }
+    -->
 </head>
 <body>
     <h1>Uso de tabelas grandes</h1>
@@ -64,11 +79,24 @@
                 <td>Rio de Janeiro</td>
                 <td class="num">17 265 943</td>
             </tr>
+            <!--Numeros aleatorios de estados aleatorios-->
+            <tr>
+                <td>Bahia</td>
+                <td class="num">15 266 723</td>
+            </tr>
+            <tr>
+                <td>Paraná</td>
+                <td class="num">11 985 848</td>
+            </tr>
+            <tr>
+                <td>Rio Grande do Sul</td>
+                <td class="num">10 341 675</td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>
                 <th scope="row">Total de habitantes</th>
-                <td class="num"> <strong>84 353 783</strong></td>
+                <td class="num"> <strong>121 948 029</strong></td>
             </tr>
         </tfoot>
     </table>
