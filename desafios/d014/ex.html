@@ -12,9 +12,19 @@
         table{
             border-collapse: collapse;
         }
+        thead, .pe{
+            background-color: gray;
+            color: white;
+        }
         th,td{
-            border: 1px solid gray;
+            border: 1px solid black;
             padding: 10px;
+        }
+        .esq{
+            text-align: left;
+        }
+        .cent{
+            text-align: center;
         }
     </style>
 </head>
@@ -22,62 +32,62 @@
     <table>
         <thead>
             <tr>
-                <th rowspan="2">Área</th>
-                <th rowspan="2">Disciplinas</th>
-                <th colspan="2">Notas</th>
-                <th rowspan="2">Média</th>
+                <th rowspan="2" scope="col">Área</th>
+                <th rowspan="2" scope="col">Disciplinas</th>
+                <th colspan="2" scope="colgroup">Notas</th>
+                <th rowspan="2" scope="col">Média</th>
             </tr>
             <tr>
-                <th>Nota 1</th>
-                <th>Nota 2</th>
+                <th scope="col">Nota 1</th>
+                <th scope="col">Nota 2</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th rowspan="4"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th rowspan="4" scope="rowgroup">Exatas</th>
+                <td>Matematica</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Física</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Quimica</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Biologia</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+            </tr>
+            <tr class="pe">
+                <th colspan="4" scope="row" class="esq">Média de Exatas</th>
+                <td class="cent">0.0</td>
             </tr>
             <tr>
-                <th colspan="4"></th>
-                <td></td>
+                <th rowspan="2" scope="rowgroup">Humanas</th>
+                <td>História</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
             </tr>
             <tr>
-                <th rowspan="2"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Geografia</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
+                <td class="cent">0.0</td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th colspan="4"></th>
-                <td></td>
+            <tr class="pe">
+                <th colspan="4" scope="row" class="esq"> Média de Humanas</th>
+                <td class="cent">0.0</td>
             </tr>
         </tbody>
     </table>
