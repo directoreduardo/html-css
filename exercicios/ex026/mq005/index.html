@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Query</title>
+    <!--Link para o icone de menu disponibilizado pelo google. Para utilizar esse icone em HTML:
+    <i class="material-icons">menu</i>
+    -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
     <header>
         <h1>Meu Site</h1>
-        <menu>
+        <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+        <menu id="itens">
             <ul>
                 <li><a href="#">Opição 1</a></li>
                 <li><a href="#">Opição 2</a></li>
@@ -23,10 +28,19 @@
     <main>
         <article>
             <h2>Testando Media Queries</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil obcaecati quo quisquam doloremque at pariatur a totam, necessitatibus eligendi repellat placeat, eos, eius cum inventore dolore non rerum repellendus possimus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam atque est, autem mollitia dolor deleniti officia laborum libero repudiandae sapiente rem itaque! Eum nam fuga ad enim assumenda tempore placeat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt beatae ipsam, inventore cumque, corrupti, vero est at reprehenderit accusantium totam minima. Modi inventore vero quas necessitatibus ad cumque labore atque.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore blanditiis odio reprehenderit accusantium nostrum. Reprehenderit sed, tempora consectetur in nostrum architecto, veritatis vitae minima sunt sit laborum mollitia, eum nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nulla vitae veritatis temporibus eos, sit ut quibusdam, tempora est repellendus molestias? Eaque quo veniam esse? Repudiandae, impedit. Provident, harum nulla. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam soluta dolorem repellendus vel aperiam voluptatibus facere et accusantium nisi at error, repudiandae excepturi reprehenderit quas aut ducimus provident quia numquam?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil obcaecati quo quisquam doloremque at pariatur a totam, necessitatibus eligendi repellat placeat, eos, eius cum inventore dolore non rerum repellendus possimus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam atque est, autem mollitia dolor deleniti officia laborum libero repudiandae sapiente rem itaque! Eum nam fuga ad enim assumenda tempore placeat? </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore blanditiis odio reprehenderit accusantium nostrum. Reprehenderit sed, tempora consectetur in nostrum architecto, veritatis vitae minima sunt sit laborum mollitia, eum nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nulla vitae veritatis temporibus eos, sit ut quibusdam, tempora est repellendus molestias? Eaque quo veniam esse? Repudiandae, impedit. Provident, harum nulla. </p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam vero aperiam ipsum voluptatum fuga neque dolores? Quidem earum minus ipsam, itaque perferendis praesentium est omnis ab nihil quasi, delectus minima! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi doloribus, soluta vitae aliquam, dolores eum quam quas maxime nostrum odio ad repudiandae dolorum reiciendis ab. Voluptate quas quisquam officiis nobis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet itaque, cumque fuga dicta corporis animi, error necessitatibus sed suscipit quisquam, nulla mollitia natus iure magnam officia quae odit facilis sapiente!</p>
         </article>
     </main>
+    <script>
+        function clickMenu(){
+            if(itens.style.display == 'block'){
+                itens.style.display = 'none'
+            } else{
+                itens.style.display = 'block'
+            }
+        }
+    </script>
 </body>
 </html>
