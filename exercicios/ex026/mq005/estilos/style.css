@@ -5,7 +5,7 @@
     padding: 0px;
 }
 body, html{
-    background-color: rgb(168, 255, 255);
+    background-color: rgb(167, 255, 255);
 }
 header{
     background-color: rgb(0, 228, 228);
@@ -42,7 +42,7 @@ menu a{ /* "menu > ul > li > a {} */
     border-top: 2px solid rgb(119, 172, 197)
 }
 menu a:hover{
-    background-color: rgb(0, 196, 222);
+    background-color: rgb(0, 171, 194);
 }
 main{
     width: 90vw;
