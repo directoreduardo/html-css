@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        .box {
+            background-color: limegreen;
+            width: 250px;
+        }
+        .box-with-padding {
+            background-color: lightblue;
+            padding: 0 25px;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">elemento sem padding</div>
+    <br>
+    <div class="box-with-padding">elemento com padding</div>
+    <!--
+        Ambos elementos possuem o mesmo
+        valor de width, mas o valor do padding do segundo o deixa com 300px de largura.
+
+        Esta regra do Box model aplicar estes valores a apenas o conteúdo e não utilizar como limites fixos do elemento como um todo pode complicar diversos casos de diagramação de elementos em páginas complexas, mas é possível alterar este comportamento e não ficar recalculando larguras e alturas baseado em bordas e espaçamentos. A propriedade box-sizing, uma das novidades do CSS 3, permite alterar esta regra de content-box para o valor border-box, que força o navegador a respeitar estes limites e ocupar o espaço interno do elemento com os valores de border e padding, no lugar de expandir o elemento.
+        Exemplo:
+        * {
+            box-sizing: border-box;
+        }
+    -->
+</body>
+</html>

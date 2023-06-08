@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo elementos</title>
+    <style>
+        section {
+            border: 1px solid #000;
+            height: 100px;
+            margin: 40px auto;
+            width: 400px;
+        }
+        h1 {
+            background-color: #990000;
+            color: #fff;
+            font-size: 1.2em;
+            left: -10px;
+            padding: 5px 0;
+            position: relative;
+            text-align: center;
+            width: 420px;
+        }
+        /*UTILIZANDO PSEUDO ELEMENTO (COMO EFEITO DA FAIXA CONTORNANDO O SECTION)*/
+        h1::before {
+            border: 5px solid #7c0000;
+            content: ""; /* A propriedade content é utilizada para definir o conteúdo do elemento - já que não estamos adicionando o elemento pelo HTML - e neste caso não precisamos de conteúdo algum. */
+            left: 0;
+            position: absolute;
+            top: -10px;
+            /*Para conseguir o efeito que queremos, precisamos transformar o quadrado que criamos em um triângulo, só precisamos de um ajuste nas cores dasbordas.*/
+            border-color: transparent #7c0000 #7c0000 transparent
+        }
+        /* Para duplicar este efeito no outro lado da faixa, utilizando o ::after, só precisamos inverter alguns detalhes*/
+        h1::after {
+            border-color: transparent transparent #7c0000 #7c0000;
+            border-style: solid;
+            border-width: 5px;
+            content: "";
+            position: absolute;
+            right: 0;
+            top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    Existem casos onde as tags que utilizamos para denir o nosso conteúdo não são o suciente para estruturar os elementos de interface que desejamos. Seja para tratar problemas de oat, denir bordas adicionais ou algo similar, muitas vezes acabamos dependendo de elementos vazios para resolver estes problemas. Por exemplo, ao trabalhar com bordas arredondadas sem o uso de CSS 3, já vi (e escrevi), coisas assim, onde o span é utilizado para criar as bordas do lado direito de um botão.
+
+    <div class='button'>
+        <a href='#'>Clique aqui</a>
+        <span></span>
+    </div>
+
+    Já foi muito comum utilizar soluções assim para trabalhar com sombras, bordas
+    arredondadas, letras iniciais de títulos e outros detalhes de interface que não conseguimos criar apenas com o mínimo de código HTML. Mas existem alternativas bastante interessantes para isto, utilizamos apenas CSS. São pseudo elementos, que não existem no nosso código HTML, mas podem receber estilos especícos e auxiliar a estruturar elementos mais complexos nas nossas interfaces. Os mais tradicionais deles são os elementos ::before e ::after, que vivem antes e depois do conteúdo de uma tag (e não antes e depois da tag em si), e estão disponíveis para todas as tags que adicionarmos ao body da nossa página.
+    -=-=-=-=-=-=-
+    Vamos criar uma faixa que dá a ilusão de que ela contorna um section que o contém, e os elementos ::before e ::after irão fazer o trabalho pesado para a gente.
+    Começamos com o mínimo de HTML necessário, uma tag section e um título para a faixa.
+    -->
+    <section>
+        <h1>Um sexemplo de pseudo elementos</h1>
+    </section>
+
+</body>
+</html>
