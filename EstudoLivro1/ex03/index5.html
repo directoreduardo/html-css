@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorando mensagens</title>
+    <style>
+        .help {
+            background-color: #f1efe6;
+            border: 1px solid #d3cdae;
+            font-size: 0.9em;
+            padding: 10px;
+            position: relative;
+            width: 300px;
+        }
+        /*Considerando que este elemento está ao lado de um campo de e-mail, podemos simular uma seta na lateral da caixa de ajuda apontando para o campo do formulário...*/
+        .help::before {
+            border-color: transparent #d3cdae transparent transparent;
+            border-style: solid;
+            border-width: 14px;
+            content: "";
+            left: -28px;
+            margin-top: -14px;
+            position: absolute;
+            top: 50%
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Outra utilidade dos pseudo elementos é criar formas de botões que antes só era possível com o uso de imagens de fundo. Usando uma lógica similar a utilizada no exemplo da faixa, podemos criar um balão de ajuda com um indicação sobre o que ele é a respeito. Imagine o seguinte parágrafo, sendo usado em um formulário de cadastro de um site de um concurso qualquer:
+    -->
+    <p class="help">
+        Preencha o campo com um e-mail valido, assim podemos entrar em contato com você para informar o resultado do nosso concurso.
+    </p>
+</body>
+</html>
