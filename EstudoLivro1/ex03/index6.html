@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ainda pseudo elemetos</title>
+    <style>
+        .tip::before {
+            content: "\261E";
+            margin: 10px;
+        }
+        blockquote {
+            color: #444;
+            font-style: italic;
+        }
+        /*
+        Podemos adicionar aspas ao redor do texto, com uma fonte maior e uma cor diferente, apenas adicionando o conteúdo necessário no ::before e ::after e ajustando o seu estilo como necessário.
+        */
+        blockquote::before, blockquote::after {
+            color: #000;
+            font-size: 3em;
+        }
+        blockquote::before {
+            content: "\201C";
+        }
+        blockquote::after {
+            content: "\201D";
+        }
+    </style>
+</head>
+<body>
+    <p class="tip">Voce sabia que...</p>
+    <blockquote>
+        O problema com citações na Internet é que voce não pode confirmar a sua veracidade.
+    </blockquote>
+</body>
+</html>
