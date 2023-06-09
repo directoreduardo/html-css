@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressão de tabelas</title>
+    <style>
+        table {
+            width: 500px;
+        }
+        td {
+            border: 1px dotted #666;
+            padding: 5px;
+        }
+        td a {
+            color: #3b5998;
+        }
+        .expense, .profit, .actions {
+            text-align: right;
+        }
+        .expense, .profit {
+            font-weight: bold;
+        }
+        .expense { color: red}
+        .profit { color: green}
+        .actions a {
+            font-size: 0.9em;
+            color: white;
+            padding: 2px 5px;
+            background-color: #3b5998;
+            text-decoration: none;
+        }
+        @media print {
+            * {
+                color: #000 !important;
+            }
+            table {
+                width: 100%;
+            }
+            td {
+                border-color: #000;
+            }
+            /*
+            Também podemos trabalhar um pouco nos links existentes na página. Os da
+            primeira coluna podem ser expandidos utilizando a técnica do pseudo elemento. Já a coluna com os links de edição é dispensável para a nossa visão de impressão, por ser um elemento de navegação sem nenhum conteúdo relevante para este cenário, podemos então esconder esta coluna inteira.
+            */
+            a::after {
+                content: "("attr(href)")";
+                margin-left: 2px;
+            }
+            .actions {
+                display: none;
+            }
+            /*
+            Por m, temos a coluna de receitas e débitos a tratar. Indo na onda de pseudo elementos, podemos adicionar duas características a casa célula desta coluna. Um sinal de - ou +, dependendo do caso, antes do valor, e os termos Receita e Despesa.
+            */
+            .expense::before {
+                content: "- ";
+            }
+            .expense::after {
+                content: " - Despesa";
+            }
+            .profit::before {
+                content: "+ ";
+            }
+            .profit::after {
+                content: " - Receita";
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Transações de Maio, 2011</h1>
+    <table>
+        <tr>
+            <td>
+                <a href="http://exemplo/transacao/1">Transação 1</a>
+            </td>
+            <td class="expense">R$ 100,00</td>
+            <td class="actions">
+                <a href="http://exemplo/transacao/1/editar">Editar</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://exemplo/transacao/2">Transação 2</a>
+            </td>
+            <td class="profit">R$ 200,00</td>
+            <td class="actions">
+                <a href="http://exemplo/transacao/2/editar">Editar</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
