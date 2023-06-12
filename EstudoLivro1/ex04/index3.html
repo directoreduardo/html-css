@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /*
+        Nosso primeiro passo com o CSS será posicionar a mensagem por cima da foto,
+        alguns pixels de distância do final dela.
+        */
+        figure {
+            position: relative;
+        }
+        img {
+            display: block;
+        }
+        figcaption {
+            bottom: 5px;
+            margin: 0 10px;
+            padding: 5px;
+            position: absolute;
+            width: 330px;
+            background-color: #0000007d;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <!--
         Com o HTML a seguir, nós temos uma foto e uma legenda, utilizando novas tags como o figure e o figcaption para agrupar o img com a sua legenda.
     -->
-    <figure>
-        <img src="/EstudoLivro1/ex04/imagens/golden-gate.jpg" alt="A Golden Gate">
-    </figure>
+        <figure>
+            <img src="imagens/golden-gate.jpg" alt="A Golden Gate">
+            <figcaption>
+                São Francisco, Califórnia
+                <small>
+                    Por Getty Images (https://www.istockphoto.com/br/fotos/golden-gate-bridge)
+                </small>
+            </figcaption>
+        </figure>
 </body>
 </html>
