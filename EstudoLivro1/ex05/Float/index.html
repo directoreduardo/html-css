@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutue elementos</title>
+    <style>
+        h2 {
+            float: left;
+            margin: 0 20px 20px 0;
+        }
+        h4 {
+            margin-top: 5px;
+        }
+        /*
+        Para garantir que um elemento não vá seguir a orientação de um antecessor que esteja com float, você precisa utilizar a propriedade clear. Você pode informar o mesmo sentido que os seus elementos estão flutuando - left ou right - ou utilizar both, que quebra o fluxo em ambos os sentidos.
+        */
+        p {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        A propriedade float é uma das soluções mais versáteis quando se trata de alinhar e posicionar elementos, que teve origem na diagramação de textos no mundo da mídia impressa onde é bastante comum ver imagens flutuando ao lado de pedaços de texto, como em uma matéria de uma revista. Na web essa técnica evoluiu e soluciona diversos casos de posicionamento de elementos.
+        O caso mais simples é para alinhar elementos horizontalmente, utuando parte deles e deixando que o resto acompanhe pela lateral, dessa forma, com o seguinte HTML:
+    -->
+    <h2>#1</h2>
+    <h4>500 pontos</h4>
+    <p>Prêmio para o campeão: 1 MacBook Pro 15</p>
+    <!--
+        Elementos com a propriedade float são tratados como elementos de bloco (lembra do display: block ?), mas sem ocupar os 100% de largura tradicionais desses elementos. E da mesma forma que ele pode flutuar para esquerda, ele pode ir para a direita.
+    -->
+</body>
+</html>
