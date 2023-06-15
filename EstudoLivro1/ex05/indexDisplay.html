@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A propriedade 'DISPLAY'</title>
+    <style>
+        body {
+            width: 300px;
+            height: 300px;
+        }
+        p {
+            background-color: limegreen;
+        }
+        span {
+            background-color: lightblue;
+        }
+        .legenda {
+            background-color: white;
+            font-weight: bold;
+        }
+        .block {
+            display: inline-block;
+        }
+        .explicacao {
+            background-color: white;
+            font-size: 0.6em;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        A propriedade display determina como um elemento será exibido pelo navegador.
+        Elementos de texto, como a, span e small, possuem um valor inline, que permite que elementos seguintes se mantenham na mesma linha que o atual, e não são afetados por propriedades como height e width. Containers como div, p, section e similares são tratados como blocos - com o valor padrão de block - quebrando o fluxo dos elementos em uma nova linha e ocupando a largura máxima que lhe é permitida. Elementos de uma tabela, como td%, thead e tr possuem seus próprios valores de display, como table-cell e table-rowmas se comportam como elementos de bloco
+    -->
+    <span>inline</span>
+    <span>inline</span>
+    <p>block</p>
+    <!--
+        Além dos valores padrões, existem duas outras possibilidades bastante úteis para a propriedade display: o none e o inline-block. O none faz com que o elemento e todo o seu conteúdo sumam da página, como se não estivessem presentes no HTML, enquanto o inline-block mistura o comportamento dos valores block e inline - os elementos não geram quebras, mas possuem as dimensões equivalentes ao seu comportamento da propriedade block. Ele seria uma solução perfeita para muitos problemas se não fosse um detalhe: o espaço entre os elementos no HTML impacta na exibição deles. 
+    -->
+    <p class="legenda"><em>SEM 'inline-block':</em></p>
+    <span>inline-block</span>
+    <span>inline-block</span>
+    <span>inline-block</span>
+    <br>
+    <span>inline-block</span><span>inline-block</span>
+    <br>
+    <p class="legenda"><em>COM 'inline-block':</em></p>
+    <span class="block">inline-block</span>
+    <span class="block">inline-block</span>
+    <span class="block">inline-block</span>
+    <br>
+    <span class="block">inline-block</span><span class="block">inline-block</span>
+    <p class="explicacao">[Caso exista uma quebra de linha ou um espaço entre os elementos no HTML, a renderização deles com inline-block irá possuir um espaço em branco - o que
+    muitas vezes não é o desejado. Chris Coyier, do CSS - Tricks propõe diversas soluções para este problema, mas nenhuma me parece válida o suciente para ser utilizada
+    com frequência. Assim como sugere o final do post, sou adepto de optar pelo uso de float nestes casos.]</p>
+</body>
+</html>
