@@ -10,6 +10,7 @@
         */
         .posts {
             width: 600px;
+            float: left;
         }
         h1 {
             float: left;
@@ -27,27 +28,69 @@
         p {
             clear: both;
         }
+        aside {
+            background-color: #fffbe4;
+            border: 1px solid #c9bc8f;
+            float: right;
+            padding: 10px;
+            width: 200px;
+        }
+        aside h3 {
+            margin: 0;
+        }
+        .page {
+            padding: 10px;
+            margin: 0 auto;
+            width: 940px;
+            background-color: #e8e8e8;
+        }
+        /*
+        Um elemento com float não contribui com a altura do seu container, então elementos como o nosso .page aparentam ter apenas alguns px de altura, devido ao seu padding, e o seu conteúdo com float aparenta ter vazado do elemento.
+        Este problema clássico de uso de float pode ser solucionado com um elemento vazio após o conteúdo que flutua, mas não precisamos adicionar tags vazias ao nosso código, pois estes elementos adicionais já estão presentes na página - os pseudo elementos.
+        */
+        .clearfix::before, .clearfix::after {
+            content: "";
+            display: table; /*Este uso especíco do valor table para a propriedade display serve para ajustar bugs de margem entre o container e os elementos com float*/
+        }
+        .clearfix::after {
+            clear: both; /*o uso de clear: both (no ::after) produz o mesmo resultado de se colocar um elemento vazio após o conteúdo.*/
+        }
+        .clearfix {
+            zoom: 1; /***a propriedade zoom, é uma técnica específica para versões antigas do Internet Explorer (6 e 7, para ser exato) e pode ser ignorada caso você não precise trabalhar com estas versões deste navegador.*/
+        }
     </style>
 </head>
 <body>
     <!--
         E da mesma forma que organizamos elementos em exemplo menores, podemos organizar os principais elementos da página utilizando float. Hora de por a mão na massa e ver isso em ação:
     -->
-    <section class="posts">
-        <article>
-            <h1><a href="#">Título do post #1</a></h1>
-            <span class="timestamp">3 semanas atrás</span>
-            <p>
-                Uma breve descrição sobre o assunto abordado no post número 1...
-            </p>
-        </article>
-        <article>
-            <h1><a href="#">Título do post #2</a></h1>
-            <span class="timestamp">3 semanas atrás</span>
-            <p>
-                Uma breve descrição sobre o assunto abordado no post número 2...
-            </p>
-        </article>
-    </section>
+    <div class="page clearfix">
+        <section class="posts">
+            <article>
+                <h1><a href="#">Título do post #1</a></h1>
+                <span class="timestamp">3 semanas atrás</span>
+                <p>
+                    Uma breve descrição sobre o assunto abordado no post número 1...
+                </p>
+            </article>
+            <article>
+                <h1><a href="#">Título do post #2</a></h1>
+                <span class="timestamp">3 semanas atrás</span>
+                <p>
+                    Uma breve descrição sobre o assunto abordado no post número 2...
+                </p>
+            </article>
+        </section>
+        <!--Vamos incrementar o nosso cenário. Hora de posicionar uma relação de links ao lado direito da seção de posts. A forma mais simples de tratar este o posicionamento de elementos é flutuando cada um - o conteúdo principal e a barra lateral - para lados diferentes. Então, temos o HTML com a lista de posts:-->
+        <aside>
+            <h3>Veja outros posts</h3>
+            <ol>
+                <li><a href="#">Post #3</a></li>
+                <li><a href="#">Post #4</a></li>
+                <li><a href="#">Post #5</a></li>
+                <li><a href="#">Post #6</a></li>
+            </ol>
+        </aside>
+    </div>
 </body>
 </html>
