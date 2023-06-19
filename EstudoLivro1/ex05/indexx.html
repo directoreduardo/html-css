@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuição de conteúdo em colunas (+) Elementos Flexíveis
+    </title>
+    <style>
+        /* Em vez de dividir o conteúdo manualmente em elementos separados e se preocupar com a largura e espaçamento entre eles você pode simplesmente deixar esta tarefa para o navegador, com a propriedade column-count, onde você define a quantidade de colunas que o seu elemento terá, e fica a cargo do navegador distribuir o conteúdo e dimensionar cada uma, independente do tamanho do seu elemento.
+        
+        Além disso, existem propriedades adicionais para denir novos detalhes do comportamento das suas colunas, como column-gap (espaçamento entre colunas), column-rule (a borda que dividirá as colunas) ou column-fill (a regra utilizada para distribuir o conteúdo entre as colunas). 
+        */
+        .colunas {
+            column-count: 3;
+            column-gap: 10px;
+            column-rule: 1px solid black;
+            font-size: 0.9em;
+            width: 500px;
+        }
+        /*--------------------------------------------*/
+        .flexbox {
+            /*
+            De acordo com a nova especificação, o valor "flexbox"
+            deverá ser substituído por apenas "flex".
+            */
+            display: flex;
+            height: 60px;
+            width: 300px;
+        }
+        .box {
+            color: #fff;
+            display: block;
+            flex: auto;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .one {background-color: #8820dd;}
+        .two {background-color: #2bb15a;}
+        .three {background-color: #755322;}
+
+        .four {background-color: #02a3a3;}
+        .five {background-color: #c6363d;}
+    </style>
+</head>
+<body>
+    <p class="colunas"> 
+        Firefly é uma série de ficção científica criada pelo escritor/diretor
+        Joss Whedon, criador de Buffy: A Caça Vampiros, Angel e Dollhouse,
+        com sua companhia de produção Mutant Enemy Productions. Seu ambiente
+        futurista naturalista, modelado a partir de temas dos filmes de Western
+        tradicionais, apresenta um cenário de ficção científica atípico para a
+        narrativa. Whedon também trabalhou como produtor executivo,
+        junto com Tim Minear.
+    </p>
+    <p>-=-=-=-=-=-=-=--=--=-=-=--=-=-=-=-=-=-=-=-=---=-=-=-=-=-=-=-=-=-=-=-=-=</p>
+    <!--------------------------------------------------->
+    <!--Um módulo bastante interessante do CSS3 é oCSS Flexible Box Layout Module, que introduz diversas propriedades novas para denir regras de posicionamento e alinhamento relativas, onde os elementos presentes em um container flex serão organizados automaticamente pelo navegador, de acordo com as denições feitas, sem a necessidade de se xar tamanhos ou forçar alinhamentos com float ou position.
+
+    Tudo se baseia no novo valor da propriedade display: flex. Com ele, a gama de propriedades do flexbox estarão disponíveis para os elementos contidos dentro deste container. Como, por exemplo, forçar uma orientação vertical ou horizontal, sem a necessidade de aplicar a propriedade float nos elementos. Ou, então, distribuir a largura do elemento entre seus lhos, alterar a ordem de exibição ou forçar um espaçamento igual para todos.
+
+    Mas como nem tudo são ores, a especicação deste módulo sofreu uma reescrita pesada e ainda está em constante atualização. A versão antiga da especicação foi implementada em diversos navegadores, mas o novo formato ainda não está maduro o suciente para se utilizar em seus projetos.
+-->
+    <div class="flexbox">
+        <span class="one box">1</span>
+        <span class="two box">2</span>
+        <span class="three box">3</span>
+        <!--Neste exemplo temos duas novidades: o valor flexbox (que será substituído por flex no futuro), que marca o container como um elemento exível, e a propriedade flex, onde você pode definir diversos comportamentos diferentes para o elemento.
+        
+        Neste caso, o valor auto define que ele irá ocupar o máximo de espaço possível, distribuindo os 300px entre cada um deles. Mas isto pode ser alcançado utilizando porcentagens na propriedade width e flutuando os elementos, certo?
+        
+        É aqui que mora a diferença entre estes métodos. Como não estamos definindo larguras fixas para os elementos flexíveis, podemos adicionar mais conteúdo com a classe .box que a largura dos elementos será ajustada pelo navegador - você não precisa pular no CSS e recalcular as larguras dos elementos.-->
+        <span class="four box">4</span>
+        <span class="five box">5</span>
+        <!--Não ter que ajustar as larguras ou definir novas classes é grande vantagem - os elementos flexíveis podem ser criados dinamicamente, variando de 3 a 10, e a responsabilidade de organizá-los e denir os seus tamanhos ca a cargo do navegador.-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Passamos por algumas opções diferentes de como estruturar e posicionar os nossos elementos nos layouts, mas a escolha de se devemos usar display: inline-block ou position: absolute em um determinado caso pode lhe custar alguns minutos, por isso é bom ter em mente em quais cenários cada combinação de propriedades é mais indicada para ser usada.
+
+Enquanto resultados similares podem ser alcançados com técnicas parecidas, soluções mais simples e que requerem menos código são sempre recomendadas para
+facilitar a manutenção do seu projeto.
+
+Se o espaçamento entre elementos com display: inline-block não for um
+problema para você, como na estruturação de um campos e rótulos em um formulários, utilize esta propriedade, por ser a implementação mais simples. Para casos de alinhamento horizontal mais complicados, em que o espaçamento causado pelo inline-block não seja uma opção, combine float com algum elemento com clear ou use o truque do clearfix no container dos elementos em questão.
+
+Para casos de sobreposição de elementos ou cenários onde você precisa posicionar um elemento em um ponto específico, como no uso de pseudo elementos como ícones ou decorações visuais, ou botões e títulos que vazam o espaço de seus containers, combine o position: absolute com o position: relative para ter total controle da posição dos seus elementos.
