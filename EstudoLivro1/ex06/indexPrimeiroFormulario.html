@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <style>
+        /*Vamos começar alinhando todos as caixas de texto na mesma posição. Para isso, precisamos fixar a mesma largura de cada label, e vamos aproveitar para deixá-los com o texto em negrito:*/
+        label {
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: bold;
+            width: 90px;
+        }
+        /*Denindo a propriedade display como inline-block, podemos fixar a largura e manter os campos ao lado dos labels, utilizando apenas block os campos ficariam abaixo do seu respectivo label, independente da largura denida. Podemos fazer o mesmo para as tags input e textarea para manter todos os elementos devidamente alinhados.*/
+        input, textarea {
+            display: inline-block;
+            width: 200px;
+            border: 1px solid #ccc;
+            box-shadow: inset 2px 2px 2px #eee;
+            /*Pronto, alterando pequenos detalhes do estilo padrão dos elementos conseguimos chegar a um visual sutil porém bastante agradável. Para compor a sombra, usamos a opção inset, que define que a sombra será exibida dentro do elemento e não fora dele.*/
+        }
+        textarea {
+            height: 100px;
+        }
+        .hint {
+            background-color: #fffbe4;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            font-size: 0.8em;
+            margin-left: 20px;
+            padding: 3px;
+            /*vamos esconder todas as mensagens alterando a propriedade display de inline-block para none. Com todas elas escondidas, vamos exibir apenas a mensagem relacionada ao campo que esteja em foco - ao selecionar o campo de “E-mail”, por exemplo, a mensagem de ajuda para este campo será exibida, quando se passar para o próximo campo, “Assunto”, a mensagem do campo de “E-mail” desaparece novamente e a mensagem para o campo de “Assunto” é exibida. Para isso utilizaremos o seletor de sibling (irmão, no caso), usando o símbolo de adição +:*/
+            display: none;
+        }
+        input:focus + .hint, textarea:focus + .hint {
+            display: inline-block;
+            /*O seletor pode ser lido como “um elemento com a classe hint, posicionado exatamente depois de um elemento input (ou textarea) que esteja em foco no navegador”. Assim, as mensagens se tornarão visíveis (tendo a propriedade display sobrescrita de none para inline-block) conforme os campos recebem e perdem o foco.*/
+        }
+        .error {
+            color: red;
+            display: block;
+            font-size: 0.8em;
+            font-style: italic;
+            margin: 5px 0 0 90px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action=""> <!--Nosso formulário está com o     method denido como post, já que pretendemos criar uma mensagem de contato no site. Com o valor do atributo action com o valor vazio, o navegador irá enviar os dados do formulário para o mesmo endereço da página atual: se estamos em http://meusite/contato, ao clicar no botão de envio os dados irão para o mesmo http://meusite/contato através do método post.
+    -->
+    <!--Para separar o campo e botão de envio, vamos colocar os elementos do formulário dentro de parágrafos com a tag p.-->
+        <p>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
+            <span class="hint">por exemplo, seunome@dominio.com.</span>
+            <span class="error">Preencha o seu e-mail corretamente!</span>
+        </p>
+        <!--No mesmo modelo, podemos adicionar os outros campos do formulário - um campo de texto para o assunto da mensagem e uma caixa de texto para o corpo da mensagem:-->
+        <p>
+            <label for="subject">Assunto:</label>
+            <input type="text" id="subject">
+            <span class="hint">Nos diga qual é o seu problema ou ideia.</span>
+        </p>
+        <p>
+            <label for="content">Mensagem:</label>
+            <textarea id="content"></textarea>
+            <span class="hint">Escreva a sua mensagem, em até 500 caracteres.</span>
+        </p>
+        <button>Enviar mensagem</button>
+    </form>
+</body>
+</html>
