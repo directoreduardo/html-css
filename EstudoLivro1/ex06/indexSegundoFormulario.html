@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pit-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <style>
+        /*Nosso primeiro passo aplicando o CSS neste formulário será esconder o label de cada campo e empilhar o campo de “Usuário” junto ao de “Senha”, empurrando o botão para baixo:*/
+        label {
+            display: none;
+        }
+        input {
+            display: block;
+            border-radius: 3px 3px 0 0;
+            border: 1px solid #999;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            font-size: 0.8em;
+            padding: 5px;
+        }
+        input [type='password'] {
+            border-radius: 0 0 3px 3px;
+            border-top: none;
+        }
+        button {
+            margin-top: 5px;
+        }
+        /*Podemos alterar o estilo do texto dos campos, mas o mesmo não é aplicado ao texto exibido do placeholder. Para isso, precisamos utilizar um pseudo-seletor específico para este texto. Devido a problemas de compatibilidades, navegadores diferentes dão um nome diferente para o mesmo seletor, então precisamos especificar todos eles, assim:*/
+        ::-webkit-input-placeholder {
+            color: #666;
+            font-style: italic;
+            font-weight: normal;
+        }
+        /***O -webkit-input-placeholder é direcionado para os navegadores baseados no WebKit - como Safari e o Google Chrome. Os demais, -moz-placeholder e -ms-input-placeholder, atendem o Mozilla Firefox e o Internet Explorer 10, respectivamente. Cada navegador processará um seletor diferente, e precisamos repetir as propriedades entre eles.***/
+        
+        /*Apesar da repetição, ganhamos total controle sobre o estilo do placeholder - podemos alterar cores, tamanhos e fundos. Por exemplo, podemos deixar o texto digitado no campo em negrito e o texto do placeholder em itálico e cinza, ajudando a diferenciar entre um campo preenchido e um campo em branco.*/
+        input {
+            font-weight: bold;
+        }
+        ::-moz-placeholder {
+            color: #666;
+            font-style: italic;
+            font-weight: normal;
+        }
+        :-ms-input-placeholder {
+            color: #666;
+            font-style: italic;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!--O atributo placeholder foi originalmente criado para exibir frases de ajuda e exemplos de formatos dentro dos próprios campos criados com a tag input, mas com ele não possuímos tanta exibilidade para mudanças de estilo e uma melhor interação com os usuários - no nosso exemplo podemos até adicionar links para páginas de ajuda mais completas e utilizar outros formas de estilo - como palavras em negrito ou em outras cores - para realçar a mensagem a ser exibida.-->
+    <!--Agora vamos inverter o cenário - utilizaremos o placeholder de campos do formulário para, visualmente, substituir o seu label - essa abordagem pode ser útil para formulários menores e simples, quando se precisa economizar alguns pixels da sua página.-->
+    <form method="post" action="">
+        <!-- não vamos precisar de parágrafos para cada campo, mas vamos ter o label de cada campo presente, mesmo considerando que não vamos exibir eles na interface final: -->
+        <label for="username">Usuário</label>
+        <input type="text" id="username" placeholder="Usuário">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Senha">
+        <button>Entrar no site</button>
+        <!--Existem duas razões para termos o label do campo de “Usuário” e de “Senha": primeiro, precisamos disponibilizar tais elementos para auxiliar leitores de telas para deficientes visuais a navegarem pela nossa página. E segundo, caso o navegador que for utilizado para acessar a página não carregue todo o nosso CSS ou não possua suporte ao atributo placeholder, o formulário ainda será funcional para quem o utilizar.-->
+    </form>
+</body>
+</html>
