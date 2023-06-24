@@ -46,6 +46,50 @@
             font-style: italic;
             font-weight: normal;
         }
+        .button1 {
+            background-image: linear-gradient(white, #e5e5e5);
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            color: #000;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        .button1:hover {
+            background-image: linear-gradient(#3775b3, #285582);
+            border-color: #204569;
+            color: #fff;
+            text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 3px #3775b3; /*A propriedade box-shadow contém duas sombras bastante distintas - a primeira é uma sombra interna (atente-se ao inset) para clarear um pouco o topo do botão. A segunda, em volta do elemento, para demonstrar um certo brilho ao seu redor*/
+        }
+        .button1:active {
+            background-color: #204569;
+            background-image: none;
+            border-color: #1a3754;
+            box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.15);
+        }
+        /*É muito comum ver pela internet diversos sites que aplicam as mais diversas mudanças em estilos para :hover e :active, e nem sempre o resultado é agradável. Tyler Galpin, um designer canadense, sugere no seu blog três regras básicas para esses casos, cabendo a cada um escolher qual das três seguir.
+        Para o caso de :hover:
+        
+        1) O botão deve ficar mais claro;
+        
+        2) O botão deve ficar mais escuro;
+        
+        3) O botão deve mudar de cor.
+        
+        E o estado de :active:
+        
+        1) O botão deve se mover 1 ou 2 pixels para baixo;
+        
+        2) O botão deve ter o seu gradiente (caso presente) invertido;
+        
+        3) O botão deve car ainda mais escuro.*/
+        
+        /*REAPLICANDO PADRÕES EM OUTROS CENÁRIOS*/
+        .button2 {
+            background-color: #6da033;
+            border: 1px solid #588129;
+        }
     </style>
 </head>
 <body>
@@ -57,8 +101,12 @@
         <input type="text" id="username" placeholder="Usuário">
         <label for="password">Senha</label>
         <input type="password" id="password" placeholder="Senha">
-        <button>Entrar no site</button>
+        <button class="button1">Entrar no site</button>
         <!--Existem duas razões para termos o label do campo de “Usuário” e de “Senha": primeiro, precisamos disponibilizar tais elementos para auxiliar leitores de telas para deficientes visuais a navegarem pela nossa página. E segundo, caso o navegador que for utilizado para acessar a página não carregue todo o nosso CSS ou não possua suporte ao atributo placeholder, o formulário ainda será funcional para quem o utilizar.-->
+        <br>
+        <br>
+        <br>
+        <button class="button2">Entrar no site</button>
     </form>
 </body>
 </html>
