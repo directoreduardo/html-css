@@ -4,6 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transformando elementos</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        li {
+            float: left;
+            margin-left: 10px;
+            position: relative;
+        }
+        span {
+            color: #153755;
+            display: block;
+            font-weight: bold;
+            margin-top: 5px;
+            text-align: center;
+        }
+        /*Para dar uma descontraída na galeria, vamos girar as fotos utilizando a função rotate. Sendo que as fotos ímpares (do Brian e do Vincent) irão para um lado e as pares (do Tobe e do James) para outro. Utilizando o seletor de nth-child, o código para isso ca bem enxuto:*/
+        li:nth-child(even) {
+            transform: rotate(5deg);
+        }
+        li:nth-child(odd) {
+            transform: rotate(-5deg);
+        }
+        /*Outro efeito que
+        conseguimos adicionar facilmente é ao passar com o cursor por cima das fotos, aumentar o tamanho da imagem e do texto, através do uso do scale.
+        */
+        li:hover {
+            transform: scale(1.3);
+            z-index: 1;
+            /*Desta forma, a img e o span irão voltar a posição normal e ficarão 30% maiores - e o uso do z-index vai posicionar a foto em cima das demais.*/
+        }
+        /*Outras funções*****
+        li:nth-child(even) {
+            transform: translateY(10px);
+        }
+        li:nth-child(odd) {
+            transform: translateY(-10px);
+        }*/
+
+    </style>
 </head>
 <body>
     <!--Vamos começar com transformações em duas dimensões. A propriedade transform aceita diversas funções de efeitos diferentes definidos pela especificação da W3C, tais
@@ -15,5 +60,24 @@
     5) matrix: o mais complexo de todos, permite executar uma matriz de transformações.
     As funções translate, scale e skew possuem versões X e Y, que permitem modificar apenas um eixo e não ambos de uma vez. As funções de skew e rotate trabalham com uma nova medida, graus, utilizando o sufixo deg, como em transform: rotate(90deg).
 -->
+    <h1>Cineastas e atores fodas</h1>
+    <ul>
+        <li>
+            <img src="imagens/depalma.jpg" alt="Brian de Palma">
+            <span>Brian de Palma</span>
+        </li>
+        <li>
+            <img src="imagens/hooper.jpg" alt="Tobe Hooper">
+            <span>Tobe Hooper</span>
+        </li>
+        <li>
+            <img src="imagens/price.jpg" alt="Vincent Price">
+            <span>Vincent Price</span>
+        </li>
+        <li>
+            <img src="imagens/woods.jpg" alt="James Woods">
+            <span>James Woods</span>
+        </li>
+    </ul>
 </body>
 </html>
