@@ -20,6 +20,13 @@
             float: left;
             margin-left: 10px;
             position: relative;
+            transition: transform 0.2s linear; /*A propriedade transform é um atalho para as 4 propriedades que compõe a animação, da mesma forma como usamos margin para definir 4 margens diferentes em uma propriedade só, sendo elas:
+            1) transition-property: para qual propriedade a transição será aplicada. É possível utilizar o valor all para referenciar todas as propriedades do elemento;
+            2) transition-duration: A duração que a transição deve ter, em segundos;
+            3) transition-timing-function: Como a velocidade da transição deverá ser calculada, os valores mais comuns são linear, ease, ease-in, ease-out e ease-in-out;
+            4) transition-delay: tempo de espera que precede a transição - geralmente omitimos essa propriedade para utilizar o valor padrão dela, 0.
+            Com isso explicado, fica fácil entender o que a nossa denição faz: aplicamos a transição a propriedade transform, com 0.2s de duração e a transição deverá ser executada em uma velocidade linear. Apesar de existir um mar de opções possíveis que conseguimos combinar com essas propriedades, é fácil definir um padrão de valores para a duração e a velocidade e repetir os valores em diversos lugares e projetos - melhor do que se preocupar constantemente em otimizar as transições para cada uso possível.
+*/
         }
         span {
             color: #153755;
