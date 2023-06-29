@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girar formulários com apenas um clique</title>
+    <style>
+        form {
+            font-size: 0.8em;
+            padding: 10px;
+        }
+        label {
+            display: block;
+            padding: 10px;
+        }
+        input {
+            border: 1px solid #ccc;
+            box-shadow: inset 2px 2px 2px #eee;
+            font-size: 0.9em;
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+    <!--As funções de transform em 2D são interessantes, mas não se comparam aos efeitos criados pelas funções de três dimensões. Capazes de usar todo o poder de renderização dos navegadores, com essas funções podemos criar efeitos similares ao de aplicações nativas do Windows ou do OS X.
+    Algumas das novas funções disponíveis:
+    1) translateZ, que assim como seus similares translateX e translateY, permite a reposição dos elementos dentro de um eixo específico;
+    2) rotateX, rotateY podem ser usadas para rotacionar os elementos nos eixos verticais e horizontais;
+    3) perspective, que deixa possível manipular a perspectiva dos elementos em meio as transformações;
+    4) matrix3d, translate3d e rotate3d, versões melhoradas de funções que vimos anteriormente, agora com suporte a 3D.
+    
+    Além das funções novas, uma nova propriedade foi adicionada para manipular o efeito da transformação quando aplicada a elementos com outros elementos dentro dele, o transform-style. Por padrão, os elementos filhos não compartilham do efeito 3D existente no elemento que os contêm - o que leva a um comportamento inesperado do posicionamento - e podemos mudar isso utilizando o transform-style com o valor preserve-3d, aplicando os efeitos aos elementos internos do que está sendo transformado-->
+    <div class="container">
+        <div class="card">
+            <section class="signup">
+                <form>
+                    <h2>Cadastre-se agora!</h2>
+                    <p>
+                        <label for="account_email">E-mail</label>
+                        <input type="email" id="account_email">
+                    </p>
+                    <p>
+                        <label for="account_password">Senha</label>
+                        <input type="password" id="account_password">
+                    </p>
+                    <p>
+                        <label for="account_password_confirmation">
+                            Confirme a sua senha
+                        </label>
+                        <input type="password" id="account_password_confirmation">
+                    </p>
+                    <p><button>Enviar</button></p>
+                    <a href="javascript:;" class="toggle">Já estou cadastrado no site</a>
+                </form>
+                <!--E um formulário para login-->
+                <form>
+                    <h2>Entrar no site</h2>
+                    <p>
+                        <label for="user_email">E-mail</label>
+                        <input type="email" id="user_email">
+                    </p>
+                    <p>
+                        <label for="user_password">Senha</label>
+                        <input type="password" id="user_password">
+                    </p>
+                    <p><button>Enviar!</button></p>
+                    <a href="javascript:;" class="toggle">Quero me cadastrar</a>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+</body>
+</html>
