@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Desenhe linhas e figuras (via JS)</title>
 </head>
 <body>
-    
+    <!--Crie o arquivo canvas.html e declare a área que utilizaremos para pintar da seguinte maneira:-->
+    <canvas id="tela" width="600" height="400"></canvas>
+    <!--Vamos desenhar um retângulo verde (green) a esquerda, no ponto 0,0 (canto superior esquerdo) de tamanho 200,400 (indo até o ponto inferior, um terço do valor máximo possível, que é 600). Aqui estamos trabalhando em um plano de duas dimensões, onde a vírgula separa a posição X da posição Y-->
+    <!--Pra fazer isso, teremos de usar funções do JavaScript que ainda não conhecemos muito. É natural (apesar de não ser o ideal) testar novas funções e comandos que ainda não dominamos-->
+    <script>
+        let tela = document.getElementById("tela")
+        let c = tela.getContext("2d")
+        // *As duas primeiras não nos importam por enquanto. Você pode imaginar que a variável c é como se fosse um pincel. Podemos trocar o estilo do pincel (através da variável fillStyle) e desenhar diversas formas (no caso um retângulo, chamando a função fillRect).
+
+        c.fillStyle="green"
+        c.fillRect(0, 0, 200, 400)
+        // *A função fillRect recebe quatro números para pintar um retângulo. Os dois primeiros são a posição X,Y. Os outros dois são a largura e a altura do retângulo. Nesse caso, estamos pintando um retângulo na posição 0,0 de 200 de largura por 400 de altura.
+        // *Como ter uma ideia melhor de onde isso vai parar na tela? O ponto 0,0 é o canto superior esquerdo. O ponto 600,400 é o inferior direito.
+        //-----------------------
+        // Vamos adicionar mais um retângulo, agora em vermelho, começando na posição 400,0. Adicione logo após o seu retângulo verde:
+        c.fillStyle="red"
+        c.fillRect(400, 0, 200, 400)
+        //-----------------------
+        // A função fillRect é simples e direta. Recebe a coordenada de início, além da altura e largura. Desenhar outras figuras dá um pouco mais de trabalho. Você precisa ir traçando o caminho, para depois chamar a função que preenche o que foi traçado. Por exemplo, queremos fazer um triângulo no meio da bandeira, em cinza (gray). Para isso, precisamos começar a traçar três lados. Pegamos nosso pincel começando do ponto 300,200, que representa o meio da bandeira. Traçamos desse ponto até o inferior esquerdo, que é 200,400. Depois traçamos a base do triângulo, movendo o pincel até o ponto 400,400. Por último, fechamos o nosso polígono (no caso um triângulo), retornando ao ponto inicial do traçado. Além disso, pedimos para que todo o polígono seja preenchido. O código fica dessa forma:
+        c.fillStyle="gray"
+        c.beginPath()
+        c.moveTo(300, 200)
+        c.lineTo(200, 400)
+        c.lineTo(400, 400)
+        c.fill()
+        // *O código segue fielmente nossa descrição. Primeiro movemos o pincel para o centro da imagem, para depois traçar os dois lados. O terceiro lado fica implícito quando fazemos a chamada ao fill.
+        //----------------------
+        //Podemos fazer qualquer figura que tenha lados usando essa fórmula, não apenas triângulos. Mas e se precisarmos de algo arredondado? Existe a função arc, que precisa de muitas informações. São 5: as coordenadas Xe Y, o raio, o ângulo inicial e o ângulo final, ambos em radianos. Nada simples. Ele precisa dos ângulos iniciais e finais porque ele também serve para desenhar apenas um pedaço do círculos. Vamos usar de 0 até duas vezes 3.14, que é o valor do PI,representando a circunferência inteira:
+        c.fillStyle="blue"
+        c.beginPath()
+        c.arc(300, 200, 50, 0, 2*3.14)
+        c.fill()
+        // *O valor de 3.14 é o PI. Estamos usando apenas duas casas decimais. Esse valor de PI pode ser substituído por Math.PI, que é uma variável já existente no JavaScript. Faça essa substituição. Valores fixos em variáveis como essa são frequentemente referenciadas como constantes.
+    </script>
 </body>
 </html>
