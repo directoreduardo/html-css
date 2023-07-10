@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parabolas (matematica)</title>
+</head>
+<body>
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let tela = document.getElementById('tela')
+        let c = tela.getContext('2d')
+        c.fillStyle='blue'
+        let desenhaParabola = function() {
+            for(var x = 0; x < 600; x++) {
+                let y = 0.01 * x * x
+                console.log('para x =' + x + ', o y vale ' + y)
+
+                c.beginPath()
+                c.arc(x, 400 - y, 2, 0, 2 * Math.PI)
+                c.fill()
+            }
+        }
+        desenhaParabola()
+    </script>
+</body>
+</html>
