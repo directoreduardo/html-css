@@ -6,6 +6,38 @@
     <title>Cansei de repetir código! (Loops e funções)</title>
 </head>
 <body>
+    <!--Vamos desenhar vários quadrados no nosso canvas e aprimorar nossas figuras. Mas será que precisaremos ficar repetindo tantas vezes os códigos complicados com arcos, quadrados, estilos e cores? 
     
+    Faremos isso num novo arquivo, o canvas_loop.html. Dentro dele, vamos declarar o canvas e preparar nosso código para que possamos começar a desenhar os quadrados de 50 por 50. Precisamos de uma função que recebe a posição x e y onde ele vai ser desenhado, ela se chamará desenhaQuadradoVerde:-->
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let desenhaQuadradoVerde = function(x, y) {
+            let tela = document.getElementById('tela')
+            let c = tela.getContext('2d')
+
+            c.fillStyle='green'
+            c.fillRect(x, y, 50, 50)
+
+            // *Para ficar mais visual podemos alterar um pouco a função para que o estilo do traçado da borda seja preta:
+            c.strokeStyle='black'
+            c.strokeRect(x, y, 50, 50)
+        }
+        // Vamos incrementar um pouco. Como fazemos para desenhar uma linha dessas, só que vermelha, logo abaixo da linha verde? Inicialmente precisamos criar a função que desenha quadrados vermelhos
+        let desenhaQuadradoVermelho = function(x, y) {
+            let tela = document.getElementById('tela')
+            let c = tela.getContext('2d')
+            c.fillStyle='red'
+            c.fillRect(x, y, 50, 50)
+            c.strokeStyle='black'
+            c.strokeRect(x, y, 50, 50)
+        }
+
+        // Com o auxílio de um loop, podemos fazer muitas outras imagens. Vamos desenhar diversos quadrados de tamanho 50 por 50, começando da posição zero do eixo X, indo até a posição 600.
+        // Criaremos uma variável x que vai aumentando de 50 em 50, até chegar em 600
+        for (var x = 0; x < 600; x = x + 50) {
+            desenhaQuadradoVerde(x, 0)
+            desenhaQuadradoVermelho(x, 50)
+        }
+    </script>
 </body>
 </html>
