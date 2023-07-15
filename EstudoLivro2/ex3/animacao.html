@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let tela = document.getElementById('tela')
+        let c = tela.getContext('2d')
+        /*
+        c.fillStyle='green'
+        c.fillRect(0, 0, 200, 400)
+        */
+        //Para organizar, vamos começar criando uma função que desenha um círculo na posição x, y de tamanho raio. O código é bastante simples:
+        let circulo = function(x, y, raio) {
+            c.fillStyle = 'blue'
+            c.beginPath()
+            c.arc(x, y,  raio, 0, 2*Math.PI)
+            c.fill()
+        }
+        //Além desse, vamos criar a função que limpa a tela:
+        let limpaTela = function(){
+            c.clearRect(0, 0, 600, 400)
+        }
+        //Por último, fazemos o for que desenha o círculo na posição x, que vai aumentando de 1 em 1. Sua posição y será sempre 100 e o raio com valor de 10:
+        /*
+        for(let x = 0; x < 600; x = x + 1){
+            limpaTela()
+            circulo(x, 100, 10)
+        }
+        */
+        //Para que possamos ver a animação ocorrer, precisamos que, a cada novo quadro da animação, o computador espera alguns milésimos de segundo. E existe uma função que faz isso: setInterval. Ela define de quanto em quanto tempo você quer que uma determinada função será chamada.
+        let x = 1
+        let desenha = function(){
+            limpaTela()
+            circulo(x, 100, 10)
+            x++
+        }
+        //Há dois pontos importantes aqui. Repare que declaramos o nosso contador x fora da função, caso contrário toda vez ele iria voltar a valer 1. Outro ponto esquisito é que não temos mais um laço! A função desenha realmente apaga a tela e desenha o círculo apenas uma vez. Quem vai chamá-la várias vezes? É a setInterval!
+        setInterval(desenha, 30)
+    </script>
+</body>
+</html>
