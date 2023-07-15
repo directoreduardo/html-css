@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MOUSE</title>
 </head>
 <body>
-    
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let tela = document.getElementById('tela')
+        let c = tela.getContext('2d')
+        c.fillStyle='gray'
+        c.fillRect(0, 0, 600, 400)
+
+        //Queremos saber se o usuário clicou dentro da nossa tela, do nosso canvas. Podemos fazer isso definindo uma função para ser chamada toda vez que um clique for feito. Basta atribuirmos uma função para tela.onclick. Adicione as seguintes linhas
+        /*
+        tela.onclick = function() {
+            alert('alguem clicou no canvas')
+        }
+        */
+        //O que fizemos aqui foi definir uma função que será chamada quando um determinado evento ocorrer. Já vimos isso antes, quando pegamos o clique do mouse em um botão do nosso HTML! Esse tipo de função é o que chamamos de callback. No nosso caso, definimos que, quando alguém clicar na tela (tela.onclick), vamos chamar uma função que por sua vez chama o alert.
+
+        //Podemos descobrir a coordenada em que o usuário clicou. Muitas vezes, quando uma função de callback é chamada, são passados argumentos descrevendo o evento que acabou de acontecer. Neste caso é passado um evento chamado MouseEvent, que podemos descobrir a posição x,y do clique através de variáveis de dentro desse evento.
+        tela.onclick = function(evento){
+            let x = evento.pageX - tela.offsetLeft //'tela.offsetLeft(Top)' - Se quisermos as coordenadas relativas ao canvas, basta subtrairmos a posição que o canvas (nossa tela) foi desenhado na página
+            let y = evento.pageY - tela.offsetTop
+
+            //Ler apenas essa informação não é tão interessante. Que tal desenhar um círculo azul em cada ponto que o usuário clicar? Basta, dentro dessa função, utilizarmos aquela função drawArc, que já conhecemos:
+            c.fillStyle='blue'
+            c.beginPath()
+            c.arc(x, y, 10, 0, 2*3.14)
+            c.fill()
+
+            alert('posição de clique: ' + x + ', ' + y)
+        }
+        //Repare que agora estamos recebendo como parâmetro uma variável que demos o nome de evento. É comum dar o nome a ela de mouseEvent ou até mesmo um simples e.
+
+        //***Opcionalmente, por uma questão de organização, poderíamos ter declarado nossa função antes, para depois fazer o registro do nosso callback. Algo assim:***
+        /*
+        let desenhaCirculo = function(evento) {
+            // código que você já viu ficaria aqui ...
+        }
+        tela.onclick = desenhaCirculo;
+        */
+    </script>
 </body>
 </html>
